@@ -9,7 +9,7 @@ Workshop slide deck for **"How to Cheat in This AI Era"** — AI Workshop, Boost
 
 A single-page, PPT-like static site. Pure HTML/CSS/JS — no build step, no dependencies. Deployable anywhere.
 
-**Live:** https://sincelabs.github.io/how-to-cheat-ai/
+**Live:** https://sincelabs.github.io/how-to-cheat-ai/ (after Pages is enabled)
 
 ## Files
 
