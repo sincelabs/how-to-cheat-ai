@@ -46,7 +46,7 @@ const DATA=[
   "keywords": [
    "erityisryhmien asuminen"
   ],
-  "quote": "Kortteliin 2034 tontille 4 ja kortteliin 2064 tontille 1 saa rakentaa erityisryhmien asumista sekä em.",
+  "quote": "Kortteliin 2034 tontille 4 ja kortteliin 2064 tontille 1 saa rakentaa erityisryhmien asumista sekä em. toiminnan edellyttämiä oleskelu- ja työtiloja.",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3375_kaavamaarays.pdf",
@@ -69,9 +69,9 @@ const DATA=[
   "keywords": [
    "erityisryhmien asuminen"
   ],
-  "quote": "enintään puolet erityisryhmien asumiseen sekä em.",
+  "quote": "enintään puolet erityisryhmien asumiseen sekä em. AK-kortteleissa saa käyttää asuinrakennusoikeudesta Vesitorninmäen lähiympäristö- ja rakentamistapaohjetta.",
   "lang": "fi",
-  "class": "context",
+  "class": "candidate",
   "pdf_name": "3336_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/151/attachments/14",
   "key_info": {
@@ -89,15 +89,15 @@ const DATA=[
   "keywords": [
    "erityisryhmien asuminen"
   ],
-  "quote": "Korttelialueelle saa rakentaa erityisryhmien asuntoja sekä em.",
+  "quote": "Korttelialueelle saa rakentaa erityisryhmien asuntoja sekä em. toiminnan edellyttämiä työpaikkoja enintään 3000 kerrosneliömetriä.",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3331_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/158/attachments/253",
   "key_info": {
-   "permission": "granted",
+   "permission": "proportional cap",
    "plots": [],
-   "building_rights": null,
+   "building_rights": "enintään 3000 k-m²",
    "operator_clause": false
   },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
@@ -149,7 +149,7 @@ const DATA=[
   "keywords": [
    "ryhmäasuminen"
   ],
-  "quote": "AK -kortteli Korttelialueelle saa rakentaa erityisryhmien ryhmä- ja palveluasuntoja yhteistiloineen (esim.",
+  "quote": "AK -kortteli Korttelialueelle saa rakentaa erityisryhmien ryhmä- ja palveluasuntoja yhteistiloineen (esim. senioritalo).",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3322_kaavamaarays.pdf",
@@ -169,7 +169,7 @@ const DATA=[
   "keywords": [
    "ryhmäasuminen"
   ],
-  "quote": "Korttelialueelle saa rakentaa ensisijaisesti vanhusten ryhmä- ja palveluasuntoja yhteistiloineen.",
+  "quote": "Korttelialueelle saa rakentaa ensisijaisesti vanhusten ryhmä- ja palveluasuntoja yhteistiloineen. Alueelle saa rakentaa myös sosiaalitointa palvelevia tiloja.",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "2724_kaavamaarays.pdf",
@@ -289,8 +289,8 @@ const DATA=[
   "keywords": [
    "vanhusten asuminen"
   ],
-  "quote": "A ja AP korttelialueet: alueelle voidaan rakentaa vanhusten palveluasuntoja ja niihin liittyviä palvelutiloja.",
-  "lang": "fi",
+  "quote": "A ja AP korttelialueet: alueelle voidaan rakentaa vanhusten palveluasuntoja ja niihin liittyviä palvelutiloja. &? sä %% Skyddsstängsel för golfbana. Den streckade linjen anger den del av golfbanans gräns pa vilken ett skyddsstängsel bör byggas. Objektbeteckning för byggnader och anläggningar för samhällsteknisk försäljning. Beteckningen tilläter byggande av en högst 20 v-m2 stor transfonnator. Objektbetecknlng för byggnader ooh anläggningar för samhällsteknisk försörjning.",
+  "lang": "sv",
   "class": "candidate",
   "pdf_name": "2793_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/597/attachments/52",
