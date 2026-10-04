@@ -58,6 +58,15 @@
   .links a { color:var(--accent); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; }
   .links a:hover { text-decoration:underline; }
   .empty { text-align:center; color:var(--dim); padding:60px 0; }
+  .tabbar { display:flex; gap:4px; margin-left:8px; }
+  .tab { padding:8px 16px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--dim); font-size:13px; cursor:pointer; }
+  .tab.on { color:var(--txt); border-color:#55524b; background:#2b2926; }
+  #mapview { padding:0 32px 48px; }
+  #map { height:640px; max-width:1000px; margin:0 auto; border:1px solid var(--line); border-radius:12px; background:#141311; }
+  .leaflet-popup-content { font-family:'DM Sans',sans-serif; font-size:13px; }
+  .pop-title { font-weight:700; margin-bottom:4px; }
+  .pop-links a { color:#c2571d; display:block; text-decoration:none; margin-top:2px; }
+  .plot-label { font-size:11px; color:var(--dim); background:rgba(212,112,47,.12); padding:2px 8px; border-radius:8px; display:inline-block; margin-top:6px; }
   footer { text-align:center; color:var(--dim); font-size:12px; padding:20px; border-top:1px solid var(--line); }
   footer b { color:var(--accent); font-weight:600; }
 </style>
@@ -78,11 +87,20 @@
     <div class="chip" data-f="context">Context</div>
     <div class="chip" data-f="excluded">Excluded</div>
   </div>
+  <div class="tabbar">
+    <button class="tab on" data-t="list">Hits</button>
+    <button class="tab" data-t="map">Kartta</button>
+  </div>
 </div>
 <div class="stats" id="stats"></div>
 <main id="list"></main>
-<footer><b>Since</b> Labs · Plot Finder mockup · data: Kirkkonummi open ArcGIS FeatureServer · every hit verifiable via source PDF</footer>
+<div id="mapview" style="display:none"><div id="map"></div></div>
 <script src="data.js"></script>
+<!-- Leaflet pinned version, no SRI: demo runs from raw.githubusercontent, integrity hash unpinned upstream; acceptable for mockup -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="plots.js"></script>
+<footer><b>Since</b> Labs · Plot Finder mockup · data: Kirkkonummi open ArcGIS FeatureServer · every hit verifiable via source PDF</footer>
 <script>
 let show = {candidate:true, context:false, excluded:false};
 const q = document.getElementById('q');
@@ -100,6 +118,7 @@ function render() {
         <span class="badge b-${h.class}">${h.class}</span>
       </div>
       <div class="kws">${h.keywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
+      ${(typeof PLOTS!=='undefined'&&PLOTS&&h.class==='candidate')?`<div class="plot-label">📍 Exact plots resolved: ${PLOTS.map(p=>p.label).join(', ')}</div>`:''}
       ${keyinfo(h)}
       <blockquote>${hl(h.quote, term)}</blockquote>
       <div class="links">
@@ -133,6 +152,48 @@ document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
   c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render();
 });
 q.oninput = render; render();
+
+// ---- Map tab ----
+let mapInited = false, map, planLayer, plotLayer;
+function initMap() {
+  map = L.map('map', {backgroundColor:'#141311'}).setView([60.126, 24.55], 11);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19}).addTo(map);
+  planLayer = L.layerGroup().addTo(map);
+  plotLayer = L.layerGroup().addTo(map);
+  const cands = DATA.filter(h => h.class === 'candidate');
+  const byKaava = {};
+  cands.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
+  (typeof PLAN_POLYS !== 'undefined' ? PLAN_POLYS : []).forEach(p => {
+    if (!p.ring || !byKaava[p.kaava]) return;
+    const hits = byKaava[p.kaava];
+    const poly = L.polygon(p.ring.map(pt => [pt[1], pt[0]]), {
+      color:'#6fb292', weight:2, fillOpacity:0.18}).addTo(planLayer);
+    const links = hits.map(h =>
+      `<div class="pop-links"><a href="${h.pdf_url}" target="_blank">📄 Kaavamääräys PDF</a></div>` +
+      `<div style="margin-top:6px;color:#98938c;max-width:260px;font-style:italic">"${h.quote.slice(0,140)}…"</div>`).join('');
+    poly.bindPopup(`<div class="pop-title">Kaava ${p.kaava} — ${p.name || hits[0].nimi}</div>${links}`);
+  });
+  (typeof PLOTS !== 'undefined' ? PLOTS : []).forEach(pl => {
+    if (!pl.ring) return;
+    const poly = L.polygon(pl.ring.map(pt => [pt[1], pt[0]]), {
+      color:'#e07a38', weight:3, fillOpacity:0.45}).addTo(plotLayer);
+    poly.bindPopup(`<div class="pop-title">Tontti ${pl.label}</div>
+      <div>Kiinteistötunnus: ${pl.kiinteistotunnus}</div>
+      <div>Pinta-ala: ${pl.area_m2} m²</div>
+      ${pl.address ? `<div>Osoite: ${pl.address}</div>` : ''}`);
+  });
+  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer}, {collapsed:false}).addTo(map);
+  mapInited = true;
+}
+document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));
+  const isMap = t.dataset.t === 'map';
+  document.getElementById('list').style.display = isMap ? 'none' : '';
+  document.getElementById('mapview').style.display = isMap ? '' : 'none';
+  if (isMap && !mapInited) initMap();
+  if (isMap) setTimeout(() => map.invalidateSize(), 50);
+});
 </script>
 </body>
 </html>
