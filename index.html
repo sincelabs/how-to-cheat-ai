@@ -156,6 +156,16 @@ q.oninput = render; render();
 // ---- Map tab ----
 let mapInited = false, map, planLayer, plotLayer;
 function initMap() {
+  if (typeof L === 'undefined') {  // htmlpreview/CDN script-blocking fallback: load Leaflet then retry
+    const s = document.createElement('script');
+    s.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    s.onload = initMap;
+    document.head.appendChild(s);
+    const css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    document.head.appendChild(css);
+    return;
+  }
   map = L.map('map', {backgroundColor:'#141311'}).setView([60.126, 24.55], 11);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19}).addTo(map);
