@@ -381,5 +381,21 @@ const DATA=[
   "key_info": {},
   "source": "ocr",
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
+ },
+ {
+  "kaava": "2742",
+  "nimi": "Pohjois-Kolsari",
+  "stage": "Lainvoimainen (OCR)",
+  "keywords": [
+   "erityisasunnot"
+  ],
+  "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja (Byggnadsyta, där specialbostäder får byggas). Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
+  "lang": "fi",
+  "class": "candidate",
+  "pdf_name": "2742_kaavamaarays.pdf",
+  "pdf_url": "",
+  "key_info": {},
+  "source": "ocr",
+  "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  }
 ];
