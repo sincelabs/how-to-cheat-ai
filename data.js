@@ -1,4 +1,4 @@
-const DATA=[
+const DATA = [
  {
   "kaava": "3397",
   "nimi": "Kirkkonummen keskusta, kortteli 108",
@@ -389,7 +389,7 @@ const DATA=[
   "keywords": [
    "erityisasunnot"
   ],
-  "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja (Byggnadsyta, där specialbostäder får byggas). Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
+  "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja. Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "2742_kaavamaarays.pdf",
