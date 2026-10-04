@@ -289,7 +289,7 @@ const DATA=[
   "keywords": [
    "vanhusten asuminen"
   ],
-  "quote": "A ja AP korttelialueet: alueelle voidaan rakentaa vanhusten palveluasuntoja ja niihin liittyviä palvelutiloja. &? sä %% Skyddsstängsel för golfbana. Den streckade linjen anger den del av golfbanans gräns pa vilken ett skyddsstängsel bör byggas. Objektbeteckning för byggnader och anläggningar för samhällsteknisk försäljning. Beteckningen tilläter byggande av en högst 20 v-m2 stor transfonnator. Objektbetecknlng för byggnader ooh anläggningar för samhällsteknisk försörjning.",
+  "quote": "A ja AP korttelialueet: alueelle voidaan rakentaa vanhusten palveluasuntoja ja niihin liittyviä palvelutiloja.",
   "lang": "sv",
   "class": "candidate",
   "pdf_name": "2793_kaavamaarays.pdf",
@@ -309,7 +309,7 @@ const DATA=[
   "keywords": [
    "vanhusten palveluasuminen"
   ],
-  "quote": "onta k-m2rakennus- ah300 Talet anger hur manga v-m2 av den pa bygg- paikan kerrosalasta saa kayttaa vanhusten nadsplatsen tillatna vaningsytan som far an- palvelutilaksi. vandas forserviceutrymmen for aldringar. Rakennusala. Byggnadsyta. Rakennusala,jolle saa sijoittaa korkeintaan Byggnadsyta dar en hogst 40 v-m2 stor bastu- 40 k-m2:n suuruisen saunarakennuksen. es byggnad far",
+  "quote": "Luku osoittaa kuinka monta k-m² rakennuspaikan kerrosalasta saa käyttää vanhusten palvelutilaksi.",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "2529_kaavamaarays.pdf",
@@ -325,7 +325,7 @@ const DATA=[
   "keywords": [
    "palveluasuminen"
   ],
-  "quote": "tointaja terveydenhuoltoa veratsfornybyggandefar tjanster,inklusie till- palvelevia tuetun asumisen palvelujaoheistiloineen. aggsutrymmen,forstottboende som tjanar socialvasendetochhalsovardenplaceras. Uudisrakentamiselleosoitetturakennusoikeus tulee Byggrattensomanvisatsfornubyggandetskall jakaa siten,ettei erillisenrakennuksenkokoylitä delassaattstorlekenpa denseparatabygg",
+  "quote": "Alalle saa sijoittaa sosiaali- ja terveydenhuoltoa palvelevia tuetun asumisen palveluja oheistiloineen.",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3000_kaavamaarays.pdf",
@@ -341,7 +341,7 @@ const DATA=[
   "keywords": [
    "erityisryhmien asuminen"
   ],
-  "quote": "iA-kvarter1bp/75v-m2. A-korttelinmyymalatilojavarten2ap. ForbutiksutrymmeniA-kvarter2bp. A-korttelinerityisryhmienasuintilojavarten ForbostadsutrymmenforspecialgrupperiA-kvarter 1 ap/150k-m2. 1 bp/150 v-m2. A-korttelin erityisryhmienkerho-jayhteistiloja Forklubb-ochgemensammautrymmenfor varten1ap/100k-m2. specialgrupperiA-kvarter1bp/100v-m2. AO-korttelissa2ap/tontti. IAO-kvarter2bp/tomt. KL-korttel",
+  "quote": "Korttelin 350 A-korttelialue: Alueelle on sallittu sijoittaa erityisryhmien asuntoja sekä em. toiminnan edellyttämiä työpaikkoja. A-korttelin erityisryhmien asuintiloja varten 1 ap/150 k-m², erityisryhmien kerho- ja yhteistiloja varten 1 ap/100 k-m².",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3005_kaavamaarays.pdf",
@@ -357,23 +357,7 @@ const DATA=[
   "keywords": [
    "vanhusten palveluasuminen"
   ],
-  "quote": "aler: 1 bp/70m²vy. AK-korttelialue: AK-kvarter: asuintilat 1ap./85k-m². bostadslokaler: 1bp/85m²vy. vanhustenpalvelu- servicebostadslokalerfor asumistilat 1ap./150k-m². aldringar: 1bp/150m²vy. myymalatilat 1ap./40k-m². butikslokaler: 1 bp/40m²vy. julkisetpalvelutilat 1ap./150k-m². offentligaserviceutrymmen: 1bp/150m²vy. AL-korttelialue: AL-kvarter: asuintilat: 1ap./75k-m². bos",
-  "lang": "fi",
-  "class": "candidate",
-  "pdf_name": "3064_kaavamaarays.pdf",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/189/attachments/65",
-  "key_info": {},
-  "source": "ocr",
-  "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
- },
- {
-  "kaava": "3064",
-  "nimi": "Sundet I, Sundet II",
-  "stage": "Lainvoimainen (OCR)",
-  "keywords": [
-   "palveluasuminen"
-  ],
-  "quote": "p/70m²vy. AK-korttelialue: AK-kvarter: asuintilat 1ap./85k-m². bostadslokaler: 1bp/85m²vy. vanhustenpalvelu- servicebostadslokalerfor asumistilat 1ap./150k-m². aldringar: 1bp/150m²vy. myymalatilat 1ap./40k-m². butikslokaler: 1 bp/40m²vy. julkisetpalvelutilat 1ap./150k-m². offentligaserviceutrymmen: 1bp/150m²vy. AL-korttelialue: AL-kvarter: asuintilat: 1ap./75k-m². bostadslok",
+  "quote": "AK-korttelialue: asuintilat 1 ap./85 k-m². Vanhustenpalvelu-asumistilat 1 ap./150 k-m². Myymälätilat 1 ap./40 k-m². Julkiset palvelutilat 1 ap./150 k-m².",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3064_kaavamaarays.pdf",
@@ -389,7 +373,7 @@ const DATA=[
   "keywords": [
    "erityisryhmien asuminen"
   ],
-  "quote": "bilplatser AK-kortteli: 1 ap. / 80 k-m2. AK-kvarteret: 1 bp. / 80 v-m2. AK-kortteli: AK-kvarteret: -erityisryhmien asuintila1 ap. / 150 k-m2. -bostadsutrymme for specialgrupper 1 bp. / 150 v-m2. -erityisryhmienkerho- -klubb- och gemensamt utrymme jayhteistila 1 ap. / 100 k-m2. forspecialgrupper 1 bp. / 100 v-m2. AO-kortteli: 2 ap. / asunto. AO-kvarteret: 2 bp. / bostad. AP-kortteli",
+  "quote": "Korttelialueen asuinrakennusoikeudesta saa käyttää enintään 3000 k-m² erityisryhmien asumiseen sekä em. toiminnan edellyttämiä oleskelu- ja työtiloja varten. AK-korttelissa erityisryhmien asuintila 1 ap./150 k-m², erityisryhmien kerho- ja yhteistila 1 ap./100 k-m².",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3250_kaavamaarays.pdf",
