@@ -69,6 +69,7 @@
   .plot-label { font-size:11px; color:var(--dim); background:rgba(212,112,47,.12); padding:2px 8px; border-radius:8px; display:inline-block; margin-top:6px; }
   footer { text-align:center; color:var(--dim); font-size:12px; padding:20px; border-top:1px solid var(--line); }
   footer b { color:var(--accent); font-weight:600; }
+  .osm-dark { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.6); }
 </style>
 </head>
 <body>
@@ -100,7 +101,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="plots.js"></script>
-<footer><b>Since</b> Labs · Plot Finder mockup · data: Kirkkonummi open ArcGIS FeatureServer · every hit verifiable via source PDF</footer>
+<footer>Since Labs · Plot Finder mockup · data: Kirkkonummi open ArcGIS FeatureServer · every hit verifiable via source PDF</footer>
 <script>
 let show = {candidate:true, context:false, excluded:false};
 const q = document.getElementById('q');
@@ -167,8 +168,8 @@ function initMap() {
     return;
   }
   map = L.map('map', {backgroundColor:'#141311'}).setView([60.126, 24.55], 11);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
   const cands = DATA.filter(h => h.class === 'candidate');
