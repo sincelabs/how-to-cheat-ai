@@ -11,6 +11,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3397_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/116/attachments/118",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -25,6 +31,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3375_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -34,11 +46,20 @@ const DATA=[
   "keywords": [
    "erityisryhmien asuminen"
   ],
-  "quote": "23.11.2017 Kortteliin 2034 tontille 4 ja kortteliin 2064 ton- tille 1 saa rakentaa erityisryhmien asumista sekä em.",
+  "quote": "Kortteliin 2034 tontille 4 ja kortteliin 2064 tontille 1 saa rakentaa erityisryhmien asumista sekä em.",
   "lang": "fi",
   "class": "candidate",
   "pdf_name": "3375_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
+  "key_info": {
+   "permission": "granted",
+   "plots": [
+    "kortteli 2034 / tontti 4",
+    "kortteli 2064 / tontti 1"
+   ],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -53,6 +74,12 @@ const DATA=[
   "class": "context",
   "pdf_name": "3336_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/151/attachments/14",
+  "key_info": {
+   "permission": "proportional cap",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -67,6 +94,12 @@ const DATA=[
   "class": "candidate",
   "pdf_name": "3331_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/158/attachments/253",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -81,6 +114,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3445_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/160/attachments/264",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -95,6 +134,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3362_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/201/attachments/55",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -109,6 +154,12 @@ const DATA=[
   "class": "candidate",
   "pdf_name": "3322_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/292/attachments/302",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -123,6 +174,12 @@ const DATA=[
   "class": "candidate",
   "pdf_name": "2724_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/376/attachments/301",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -137,6 +194,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3465_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/434/attachments/120",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -151,6 +214,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3351_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/13",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -160,11 +229,17 @@ const DATA=[
   "keywords": [
    "erityisryhmien asuminen"
   ],
-  "quote": "AK- korttelialueet Rakennuksen asuntojen huoneistoalasta (h-m2) yhden huoneen asuntojen yhteenlaskettu huoneistoala saa olla enintään 40 % lukuun ottamatta erityisryhmien asumista.",
+  "quote": "AKkorttelialueet Rakennuksen asuntojen huoneistoalasta (h-m2) yhden huoneen asuntojen yhteenlaskettu huoneistoala saa olla enintään 40 % lukuun ottamatta erityisryhmien asumista.",
   "lang": "fi",
   "class": "excluded",
   "pdf_name": "3351_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/13",
+  "key_info": {
+   "permission": "proportional cap",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -179,6 +254,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3492_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/4",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -193,6 +274,12 @@ const DATA=[
   "class": "excluded",
   "pdf_name": "3492_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/4",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  },
  {
@@ -207,6 +294,12 @@ const DATA=[
   "class": "candidate",
   "pdf_name": "2793_kaavamaarays.pdf",
   "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/597/attachments/52",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
   "map_url": "https://web.dmcity.fi/kirkkonummi/public/"
  }
 ];
