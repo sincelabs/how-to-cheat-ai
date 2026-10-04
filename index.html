@@ -6,13 +6,13 @@
 <title>Plot Finder — by Since Labs</title>
 <style>
   :root { --bg:#1a1917; --card:#232120; --line:#38352f; --txt:#f0ede8; --dim:#98938c;
-          --accent:#d4702f; --accent-hi:#e07a38; --green:#6fb292; --red:#ff383c; --amber:#d4702f; }
+          --accent:#e8e4dd; --accent-hi:#e07a38; --green:#6fb292; --red:#ff383c; --amber:#e8e4dd; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { background:var(--bg); color:var(--txt); font-family:'DM Sans',-apple-system,'Segoe UI',Roboto,sans-serif; min-height:100vh; }
   header { padding:28px 32px 16px; border-bottom:1px solid var(--line); }
-  .brand { display:flex; align-items:baseline; gap:10px; }
-  .brand .since { font-family:'Lora',Georgia,serif; font-size:20px; font-weight:600; color:var(--accent); letter-spacing:.2px; }
-  .brand .labs { font-size:11px; text-transform:uppercase; letter-spacing:2.4px; color:var(--dim); }
+  .brand{display:flex;align-items:center;gap:10px}
+.mark{color:#d4702f;font-weight:800;font-style:italic;font-size:1.15em;letter-spacing:-1px}
+.wm{color:#fff;font-weight:700;font-size:1.15rem;letter-spacing:.2px}
   .brand .sep { color:var(--line); }
   h1 { font-size:22px; font-weight:600; font-family:'Lora',Georgia,serif; margin-top:6px; }
   h1 span { color:var(--accent); }
@@ -64,7 +64,7 @@
 </head>
 <body>
 <header>
-  <div class="brand"><span class="since">Since</span><span class="labs">Labs</span><span class="sep">·</span><span class="labs" style="letter-spacing:1px">Plot Finder</span></div>
+  <div class="brand"><span class="mark">//</span><span class="wm">Since Labs</span></div>
   <h1>Kirkkonummi <span>mockup</span></h1>
   <div class="sub">Zoning plans with service-housing (palveluasuminen / erityisryhmien asuminen) permission clauses</div>
 </header>
