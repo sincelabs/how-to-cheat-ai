@@ -105,7 +105,7 @@
 <script src="https://cdn.jsdelivr.net/gh/sincelabs/how-to-cheat-ai@plotfinder-demo/plots.js"></script>
 <footer>Since Labs · Plot Finder mockup · data: Kirkkonummi open ArcGIS FeatureServer · every hit verifiable via source PDF</footer>
 <script>
-let show = {candidate:true, context:false, excluded:false, missing_doc:false};
+let show = {candidate:true, context:false, excluded:false, missing_doc:true};
 const q = document.getElementById('q');
 function render() {
   const term = q.value.toLowerCase();
@@ -175,15 +175,18 @@ function initMap() {
     attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
-  const cands = DATA.filter(h => h.class === 'candidate');
+  const cands = DATA.filter(h => h.class === 'candidate' || h.class === 'missing_doc');
   const byKaava = {};
   cands.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
   (typeof PLAN_POLYS !== 'undefined' ? PLAN_POLYS : []).forEach(p => {
     if (!p.ring || !byKaava[p.kaava]) return;
     const hits = byKaava[p.kaava];
+    const missing = hits[0].class === 'missing_doc';
     const poly = L.polygon(p.ring.map(pt => [pt[1], pt[0]]), {
-      color:'#6fb292', weight:2, fillOpacity:0.18}).addTo(planLayer);
-    const links = hits.map(h =>
+      color: missing ? '#facc15' : '#6fb292', weight:2, fillOpacity:0.18}).addTo(planLayer);
+    const links = missing
+      ? `<div style="margin-top:6px;color:#facc15;max-width:260px">⚠ ${hits[0].note || 'Ei julkista kaavamääräysasiakirjaa'}</div>`
+      : hits.map(h =>
       `<div class="pop-links"><a href="${h.pdf_url}" target="_blank">📄 Kaavamääräys PDF</a></div>` +
       `<div style="margin-top:6px;color:#98938c;max-width:260px;font-style:italic">"${h.quote.slice(0,140)}…"</div>`).join('');
     poly.bindPopup(`<div class="pop-title">Kaava ${p.kaava} — ${p.name || hits[0].nimi}</div>${links}`);
