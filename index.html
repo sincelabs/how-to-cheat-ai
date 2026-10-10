@@ -68,6 +68,7 @@
   .pop-title { font-weight:700; margin-bottom:4px; }
   .pop-links a { color:#c2571d; display:block; text-decoration:none; margin-top:2px; }
   .plot-label { font-size:11px; color:var(--dim); background:rgba(212,112,47,.12); padding:2px 8px; border-radius:8px; display:inline-block; margin-top:6px; }
+  .bld-chip { font-size:11px; color:#9fb6cc; background:rgba(96,125,155,.14); border:1px solid rgba(96,125,155,.35); padding:2px 10px; border-radius:8px; display:inline-block; margin-top:6px; margin-right:6px; }
   footer { text-align:center; color:var(--dim); font-size:12px; padding:20px; border-top:1px solid var(--line); }
   footer b { color:var(--accent); font-weight:600; }
   .osm-dark { filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9) saturate(0.6); }
@@ -95,11 +96,16 @@
     <div class="chip" data-f="excluded">Excluded</div>
     <div class="chip" data-f="missing_doc">No document</div>
   </div>
+  <select id="sortBy" style="background:var(--card);color:var(--txt);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-family:inherit">
+    <option value="score">Mahdollisuuspisteet (korkein ensin)</option>
+    <option value="kaava">Kaava-numero</option>
+  </select>
   <div class="tabbar">
     <button class="tab on" data-t="list">Hits</button>
     <button class="tab" data-t="map">Kartta</button>
   </div>
 </div>
+<div id="bldPanelMount"></div>
 <div class="stats" id="stats"></div>
 <main id="list"></main>
 <div id="mapview" style="display:none"><div id="map"></div></div>
@@ -110,9 +116,35 @@
 <script src="plots.js"></script>
 <footer>Since Labs · Plot Finder · data: Kirkkonummi ArcGIS FeatureServer + Espoo Tekla WFS · every hit verifiable via source PDF</footer>
 <script>
+// NOTE: BUILDINGS must be declared before render()'s first invocation (bldStats reads it) — TDZ otherwise.
+let BUILDINGS = [];
+// Buildings relevance filters (Antti: flag only buildings that matter for building)
+const bldFilters = { minArea: 0, onParcelOnly: false, showAll: false };
+const BLD_CHIP_HTML = `
+<div id="bldFilters" style="display:none;margin:8px 0;padding:10px 12px;border:1px solid #3a3833;border-radius:8px;background:#211f1c;font-size:12px">
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+    <label style="display:flex;align-items:center;gap:6px;color:#c9c4bd">Min. kerrosala
+      <select id="bldMinArea" style="background:#141311;color:#e8e4de;border:1px solid #3a3833;border-radius:6px;padding:2px 6px">
+        <option value="0">kaikki</option>
+        <option value="100">≥ 100 k-m²</option>
+        <option value="300">≥ 300 k-m²</option>
+        <option value="1000">≥ 1 000 k-m²</option>
+      </select></label>
+    <label style="display:flex;align-items:center;gap:6px;color:#c9c4bd">
+      <input type="checkbox" id="bldOnParcel"> vain tonteilla (exact plots)</label>
+    <label style="display:flex;align-items:center;gap:6px;color:#c9c4bd">
+      <input type="checkbox" id="bldShowAll"> näytä kaikki rakennukset</label>
+    <span id="bldCount" style="color:#98938c"></span>
+  </div>
+</div>`;
 let show = {candidate:true, context:false, excluded:false, missing_doc:true};
 const q = document.getElementById('q');
 const citySel = document.getElementById('city');
+// fetch buildings immediately so the list view chips work without opening the map
+fetch('buildings_data.json', {cache:'no-store'})
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => { BUILDINGS = d; render(); })
+  .catch(e => console.warn('buildings_data.json unavailable:', e));
 function currentCity() { return citySel.value; }
 function render() {
   const term = q.value.toLowerCase();
@@ -120,6 +152,10 @@ function render() {
   const hits = DATA.filter(h => show[h.class] !== false)
     .filter(h => city === 'all' || h.city === city)
     .filter(h => !term || (h.kaava+' '+h.nimi+' '+h.keywords.join(' ')+' '+h.quote).toLowerCase().includes(term));
+  const sortBy = (document.getElementById('sortBy')||{}).value || 'score';
+  hits.sort((a,b) => sortBy === 'score'
+    ? (b.score||0) - (a.score||0) || String(a.kaava).localeCompare(String(b.kaava))
+    : String(a.kaava).localeCompare(String(b.kaava)));
   const nCand = hits.filter(h=>h.class==='candidate').length;
   const scan = city==='kirkkonummi' ? '142 plan PDFs scanned · 29 text-readable'
              : city==='espoo' ? '1,842 plan PDFs scanned · 1,371 text-readable'
@@ -130,13 +166,16 @@ function render() {
     <div class="hit ${h.class==='candidate'?'top':h.class}">
       <div class="hit-head">
         <div class="kaava">Kaava ${h.kaava}<small>${h.nimi}</small></div>
+        ${(h.score!=null&&h.class==='candidate')?`<span class="badge b-candidate" style="background:${h.score>=60?'#1f3d2b':(h.score>=35?'#3d331f':'#3d2222')};color:${h.score>=60?'#7ddf9a':(h.score>=35?'#e8c96a':'#e08a8a')}">⬤ ${h.score} · ${h.verdict}</span>`:''}
         <span class="badge b-${h.class}">${h.class}</span>
       </div>
       <div class="kws">${h.keywords.map(k=>`<span class="kw">${k}</span>`).join('')}</div>
       ${(typeof PLOTS!=='undefined'&&PLOTS&&h.plots&&h.plots.length)?`<div class="plot-label">📍 Exact plots resolved: ${(PLOTS.filter(p=>h.plots.some(q=>{const m=q.match(/kortteli\s+(\d+)\s*\/\s*tontti\s+(\d+)/); return m && p.kortteli===+m[1] && p.tontti===+m[2];})).map(p=>p.label).join(', ')||h.plots.join(', '))}</div>`:''}
+      ${bldChip(h)}
       ${h.class==='missing_doc'&&h.note?`<div class="plot-label" style="color:#facc15">⚠</div><div class="plot-label">${h.note}</div>`:''}
       ${keyinfo(h)}
       <blockquote>${hl(h.quote, term)}</blockquote>
+      ${h.class==='candidate'?`<button class="chip" style="display:inline-block;margin:8px 8px 0 0" onclick='openReport(${JSON.stringify(h).replace(/'/g,"&#39;")})'>📊 Raportti</button>`:''}
       <div class="links">
         ${h.pdf_url?`<a href="${h.pdf_url}" target="_blank">📄 Source PDF — ${h.pdf_name||''}</a>`:''}
         <a href="${h.map_url || (h.city==='espoo' ? 'https://kartat.espoo.fi/decimen/' : 'https://web.dmcity.fi/kirkkonummi/public/')}" target="_blank">🗺 Municipality kaavoitus page</a>
@@ -167,13 +206,131 @@ function hl(text, term) {
   if (!term) return t;
   return t.replace(new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi'), '<mark>$1</mark>');
 }
+function bldStats(kaava) {
+  if (typeof BUILDINGS === 'undefined') return null;
+  const bs = applyBldFilters(BUILDINGS.filter(b => b.kaava === String(kaava)));
+  if (!bs.length) return null;
+  return { count: bs.length,
+           kerrosala: bs.reduce((s,b)=>s+(b.kerrosala||0),0),
+           maxfloors: Math.max(0,...bs.map(b=>b.floors||0)),
+           apartments: bs.reduce((s,b)=>s+(b.apartments||0),0) };
+}
+// point-in-polygon (ray casting) for parcel containment checks
+function ptInRing(lng, lat, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1];
+    if (((yi > lat) !== (yj > lat)) && (lng < (xj - xi) * (lat - yi) / (yj - yi) + xi)) inside = true;
+  }
+  return inside;
+}
+function bldCentroid(ring) {
+  const n = ring.length; if (!n) return null;
+  let x = 0, y = 0; ring.forEach(p => { x += p[0]; y += p[1]; });
+  return [x/n, y/n];
+}
+// apply relevance filters to a building list.
+// Default (no explicit user filter): show only RELEVANT buildings — significant
+// (>=1000 k-m2 or >=3 floors) or sitting on an exact candidate parcel. Small
+// occupied houses are noise for Hoivatilat and hidden unless user widens.
+function applyBldFilters(bs) {
+  const onParcel = bldFilters.onParcelOnly && typeof PLOTS !== 'undefined' && PLOTS.length;
+  const widened = bldFilters.minArea > 0 || bldFilters.showAll;
+  return bs.filter(b => {
+    if (bldFilters.minArea && (b.kerrosala||0) < bldFilters.minArea) return false;
+    if (!widened && b.relevant === false) return false;
+    if (!onParcel) return true;
+    const c = bldCentroid(b.ring || []);
+    if (!c) return false;
+    return PLOTS.some(pl => pl.ring && ptInRing(c[0], c[1], pl.ring));
+  });
+}
+function updateBldPanel() {
+  const el = document.getElementById('bldCount');
+  if (el) el.textContent = `${applyBldFilters(BUILDINGS).length} / ${BUILDINGS.length} buildings shown`;
+}
+
+function bldChip(h) {
+  const s = bldStats(h.kaava);
+  if (!s) return '';
+  return `<span class="bld-chip">🏗 ${s.count} existing building${s.count>1?'s':''} · ${s.kerrosala.toLocaleString('fi-FI')} k-m² floor area${s.maxfloors?` · up to ${s.maxfloors} floors`:''}${s.apartments?` · ${s.apartments} apartments`:''} — demolition may be required</span>`;
+}
+
+function parseAllowed(h) {
+  const texts = [h.quote||'', (h.key_info&&h.key_info.building_rights)||''].join(' ');
+  const t = texts.replace(/\s+/g,' ');
+  const nums = [];
+  // (1) plan-total: "enintään N k-m2" style
+  let re = /(enintään|max\.|korkeintaan)?\s*([\d\s]{1,12})\s*(?:k-m2|k-m²|kerrosneliömetri)/gi;
+  let m;
+  while ((m = re.exec(t)) !== null) {
+    const n = parseInt(m[2].replace(/\s/g,''), 10);
+    if (n > 0 && n < 1000000) nums.push({n, capped: !!m[1], kind: 'total'});
+  }
+  if (nums.length) return nums;
+  // (2) per-unit rights table: "N ap./M k-m2" -> M is per unit; units unclear, use M*N if both parse
+  re = /(\d+)\s*ap\.?\s*\/\s*(\d+)\s*k-m/i;
+  m = re.exec(t);
+  if (m) {
+    const per = parseInt(m[2],10);
+    if (per > 0) nums.push({n: per, capped: false, kind: 'per-unit'});
+  }
+  return nums;
+}
+function expansion(h) {
+  const s = bldStats(h.kaava);
+  const allowed = parseAllowed(h);
+  if (!allowed.length) return null;
+  const a = allowed[0].n;
+  return { allowed: a, capped: allowed[0].capped,
+           existing: s ? s.kerrosala : 0,
+           net: a - (s ? s.kerrosala : 0) };
+}
+function openReport(h) {
+  const s = bldStats(h.kaava), e = expansion(h);
+  const fi = n => (n||0).toLocaleString('fi-FI');
+  const rows = [];
+  rows.push(`<tr><td>Kaava</td><td>${h.kaava} — ${h.nimi||''} (${h.stage||''})</td></tr>`);
+  if (h.quote) rows.push(`<tr><td>Lupaclaus</td><td>${h.quote}</td></tr>`);
+  if (h.plots && h.plots.length) rows.push(`<tr><td>Nimitetyt tontit</td><td>${h.plots.join(', ')}</td></tr>`);
+  if (h.key_info && h.key_info.building_rights) rows.push(`<tr><td>Rakennusoikeus</td><td>${h.key_info.building_rights}</td></tr>`);
+  if (s) rows.push(`<tr><td>Olemassa olevat rakennukset</td><td>${s.count} kpl · ${fi(s.kerrosala)} k-m² kerrosalaa${s.maxfloors?` · max ${s.maxfloors} kerrosta`:''}${s.apartments?` · ${s.apartments} asuntoa`:''}</td></tr>`);
+  if (e) {
+    const verdict = e.net <= 0
+      ? `ei selvää lisäpotentiaalia ilman purkuja (rajoite koskee erityisryhmien asumista; olemassa oleva kerrosala kattaa kaikki käyttötarkoitukset)`
+      : `<b>${fi(e.net)} k-m²</b> (sallittu ${fi(e.allowed)} − olemassa ${fi(e.existing)}) — karkea arvio: olemassa oleva kattaa kaikki käyttötarkoitukset`;
+    rows.push(`<tr><td>Laajennuspotentiaali</td><td>${verdict}${e.capped?' · kattolauseke mainittu määräyksessä':''}</td></tr>`);
+  }
+  rows.push(`<tr><td>Lähteet</td><td>${h.pdf_url?`<a href="${h.pdf_url}">Kaavamääräys-PDF</a>`:'ei julkista asiakirjaa'} · ${h.city==='espoo'?'https://kartat.espoo.fi/decimen/':'https://web.dmcity.fi/kirkkonummi/public/'}</td></tr>`);
+  rows.push(`<tr><td>Huomiot</td><td>Laajennusluku on karkeaan vertailuun: olettaa täyden rakennusoikeuden käytön. Purkukustannuksia, suojeluarvoja ja tonttikohtaisia rajoitteita ei ole arvioitu.</td></tr>`);
+  const html = `<!DOCTYPE html><html lang="fi"><head><meta charset="utf-8"><title>Kaava ${h.kaava} — Plot Finder -raportti</title>
+<style>body{font-family:Georgia,serif;max-width:800px;margin:40px auto;padding:0 20px;color:#1a1917}
+h1{font-size:22px;border-bottom:2px solid #d4702f;padding-bottom:8px}h1 small{color:#666;font-weight:normal}
+table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}td{border-bottom:1px solid #ddd;padding:10px 8px;vertical-align:top}
+td:first-child{font-weight:bold;width:220px;color:#555}blockquote{background:#f7f5f2;padding:12px;border-left:3px solid #d4702f;margin:0}
+.brand{font-size:12px;color:#999;margin-top:30px}@media print{.noprint{display:none}}</style></head><body>
+<h1>Kaava ${h.kaava} — ${h.nimi||''}<br><small>Plot Finder · Since Labs · ${new Date().toLocaleDateString('fi-FI')}</small></h1>
+<table>${rows.join('')}</table>
+<div class="brand">Since Labs · Plot Finder — generoitu automaattisesti kunnan avoimesta aineistosta</div>
+<div class="noprint" style="margin-top:20px"><button onclick="window.print()">Tulosta / PDF</button></div>
+</body></html>`;
+  window.open('data:text/html;charset=utf-8,'+encodeURIComponent(html), '_blank');
+}
+
 document.querySelectorAll('.chip').forEach(c => c.onclick = () => {
   c.classList.toggle('on'); show[c.dataset.f] = c.classList.contains('on'); render(); refreshMapLayers();
 });
-q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); }; render();
+// buildings filter panel: inject after DOM ready, show when buildings data arrives
+document.getElementById('bldPanelMount').innerHTML = BLD_CHIP_HTML;
+document.getElementById('bldMinArea').onchange = e => { bldFilters.minArea = +e.target.value; refreshMapLayers(); render(); };
+document.getElementById('bldOnParcel').onchange = e => { bldFilters.onParcelOnly = e.target.checked; refreshMapLayers(); render(); };
+document.getElementById('bldShowAll').onchange = e => { bldFilters.showAll = e.target.checked; refreshMapLayers(); render(); };
+q.oninput = () => { render(); refreshMapLayers(); }; citySel.onchange = () => { render(); refreshMapLayers(); };
+document.getElementById('sortBy').onchange = () => render();
+render();
 
 // ---- Map tab ----
-let mapInited = false, map, planLayer, plotLayer;
+let mapInited = false, map, planLayer, plotLayer, bldLayer;
 function mapHits() {  // same filter chain as the list view
   const term = q.value.toLowerCase();
   const city = currentCity();
@@ -197,7 +354,13 @@ function initMap() {
     attribution:'&copy; OpenStreetMap contributors', maxZoom:19, className:'osm-dark'}).addTo(map);
   planLayer = L.layerGroup().addTo(map);
   plotLayer = L.layerGroup().addTo(map);
-  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer}, {collapsed:false}).addTo(map);
+  bldLayer = L.layerGroup().addTo(map);  // on by default: shows only relevance-filtered buildings
+  L.control.layers({}, {'Kaava-alueet (candidates)': planLayer, 'Tontit (exact plots)': plotLayer, 'Rakennukset (existing buildings)': bldLayer}, {collapsed:false}).addTo(map);
+  // load buildings early with no-store so list chips + map layer both get it
+  fetch('buildings_data.json', {cache:'no-store'})
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(d => { BUILDINGS = d; render(); })
+    .catch(e => console.warn('buildings_data.json unavailable:', e));
   mapInited = true;
   refreshMapLayers();
 }
@@ -205,6 +368,7 @@ function refreshMapLayers() {
   if (!mapInited) return;
   planLayer.clearLayers();
   plotLayer.clearLayers();
+  bldLayer.clearLayers();
   const hits = mapHits();
   const byKaava = {};
   hits.forEach(h => { (byKaava[h.kaava] = byKaava[h.kaava] || []).push(h); });
@@ -235,6 +399,25 @@ function refreshMapLayers() {
       ${pl.kaava ? `<div style="margin-top:4px">Kaava: <a href="#" onclick="switchToHit('${pl.kaava}');return false">${pl.kaava}</a></div>` : ''}
       ${pl.note ? `<div style="margin-top:4px;color:#98938c;font-style:italic;max-width:260px">${pl.note}</div>` : ''}`);
   });
+  // existing buildings (blue-gray footprints, only for plans currently shown, relevance-filtered)
+  const kaavaSet = new Set(hits.map(h => String(h.kaava)));
+  const relevantBlds = applyBldFilters(BUILDINGS.filter(b => kaavaSet.has(b.kaava)));
+  relevantBlds.forEach(b => {
+    if (!b.ring) return;
+    const polys = (b.rings && b.rings.length > 1) ? b.rings : [b.ring];
+    const poly = L.polygon(polys.map(r => r.map(pt => [pt[1], pt[0]])), {
+      color:'#607d9b', weight:1.5, fillColor:'#607d9b', fillOpacity:0.35}).addTo(bldLayer);
+    poly.bindPopup(`<div class="pop-title">Rakennus ${b.address || ''}</div>
+      ${b.kerrosala ? `<div>Kerrosala: ${b.kerrosala.toLocaleString('fi-FI')} k-m²</div>` : ''}
+      ${b.floors ? `<div>Kerroksia: ${b.floors}</div>` : ''}
+      ${b.apartments ? `<div>Huoneistoja: ${b.apartments}</div>` : ''}
+      ${b.tilavuus ? `<div>Tilavuus: ${Math.round(b.tilavuus).toLocaleString('fi-FI')} m³</div>` : ''}
+      ${b.kokonaisala ? `<div>Kokonaisala: ${b.kokonaisala.toLocaleString('fi-FI')} m²</div>` : ''}
+      <div>VTJ-PRT: ${b.vtj_prt || '—'}</div>
+      ${b.also_in && b.also_in.length ? `<div>Myös kaavoissa: ${b.also_in.join(', ')}</div>` : ''}
+      <div style="margin-top:4px;color:#98938c;font-style:italic">Kaava ${b.kaava} — existing building; demolition required before new construction</div>`);
+  });
+  updateBldPanel();
 }
 document.querySelectorAll('.tab').forEach(t => t.onclick = () => {
   document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === t));

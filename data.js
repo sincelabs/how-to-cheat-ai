@@ -13,7 +13,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/116/attachments/117",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/118/attachments/306",
   "source": "arcgis"
  },
  {
@@ -30,7 +30,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/122/attachments/203",
   "source": "arcgis"
  },
  {
@@ -50,7 +50,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/120/attachments/246",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/122/attachments/203",
   "source": "arcgis",
   "plots": [
    "kortteli 2034 / tontti 4",
@@ -71,7 +71,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/151/attachments/14",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/154/attachments/14",
   "source": "arcgis"
  },
  {
@@ -88,7 +88,7 @@ const DATA=[
    "building_rights": "enintään 3000 k-m²",
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/158/attachments/253",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/161/attachments/197",
   "source": "arcgis"
  },
  {
@@ -105,8 +105,26 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/160/attachments/264",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/163/attachments/186",
   "source": "arcgis"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "3445",
+  "nimi": "Bjönsinmäki",
+  "stage": "Lainvoimainen",
+  "keywords": [],
+  "quote": "Autopaikkojen vähimmäismäärät A- ja AK-kortteli: 1 ap / 100 k-m², vähintään 0,6 ap / asunto - erityisryhmien asuintila: 1 ap / 150 k-m² - erityisryhmien kerho- ja yhteistila:1 ap / 100 k-m² AO-kortteli: 2 ap / asunto, lukuun ottamatta korttelin 2023 tonttia 5, jossa 1,5 ap / asunto YK-kortteli: 1 ap / 10 istuinpaikkaa, vähintään 30 autopaikkaa.",
+  "class": "context",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/163/attachments/186",
+  "source": "arcgis",
+  "note": "Autopaikkamääräys (erityisryhmien asumista eriyttävä) — ei rakentamislupa sinänsä."
  },
  {
   "city": "kirkkonummi",
@@ -122,8 +140,26 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/201/attachments/55",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/204/attachments/51",
   "source": "arcgis"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "3322",
+  "nimi": "Veikkolan keskusta",
+  "stage": "Lainvoimainen",
+  "keywords": [],
+  "quote": "Autopaikkoja on rakennettava seuraavasti: AK -korttelialueilla: 1 ap/80 k-m2, kuitenkin vähintään 1 ap/asunto, erityisryhmien asuintilat 1 ap/150 k-m2, erityisryhmien yhteistilat 1 ap/100 k-m2.",
+  "class": "context",
+  "key_info": {
+   "permission": "check manually",
+   "plots": [],
+   "building_rights": "enintään 80 k-m²",
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/295/attachments/140",
+  "source": "arcgis",
+  "note": "Autopaikkamääräys (erityisryhmien asumista eriyttävä) — ei rakentamislupa sinänsä."
  },
  {
   "city": "kirkkonummi",
@@ -139,7 +175,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/292/attachments/302",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/295/attachments/140",
   "source": "arcgis"
  },
  {
@@ -156,7 +192,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/376/attachments/300",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/379/attachments/141",
   "source": "arcgis"
  },
  {
@@ -173,7 +209,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/434/attachments/119",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/437/attachments/304",
   "source": "arcgis"
  },
  {
@@ -190,7 +226,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/12",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/502/attachments/13",
   "source": "arcgis"
  },
  {
@@ -207,7 +243,41 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/499/attachments/12",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/502/attachments/13",
+  "source": "arcgis"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "3351",
+  "nimi": "Juhlakallio",
+  "stage": "Lainvoimainen",
+  "keywords": [],
+  "quote": "A-korttelialueilla saa rakentaa asuntoja erityisryhmille sekä näiden kerho- ja yhteistiloja.",
+  "class": "candidate",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/502/attachments/13",
+  "source": "arcgis"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "3439",
+  "nimi": "Tolsanmäki",
+  "stage": "Lainvoimainen",
+  "keywords": [],
+  "quote": "AK-korttelialueet Korttelialueille saa rakentaa asuntoja erityisryhmille sekä näiden kerho- ja yhteitiloja.",
+  "class": "candidate",
+  "key_info": {
+   "permission": "granted",
+   "plots": [],
+   "building_rights": null,
+   "operator_clause": false
+  },
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/572/attachments/18",
   "source": "arcgis"
  },
  {
@@ -224,7 +294,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/1",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/574/attachments/2",
   "source": "arcgis"
  },
  {
@@ -241,7 +311,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/570/attachments/1",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/574/attachments/2",
   "source": "arcgis"
  },
  {
@@ -250,7 +320,7 @@ const DATA=[
   "nimi": "Sarvvik",
   "stage": "Lainvoimainen",
   "keywords": [],
-  "quote": "A ja AP korttelialueet: alueelle voidaan rakentaa vanhusten palveluasuntoja ja niihin liittyviä palvelutiloja.",
+  "quote": "A ja AP korttelialueet: alueelle voidaan rakentaa vanhusten palveluasuntoja ja niihin liittyviä palvelutiloja. &? sä %% Skyddsstängsel för golfbana. Den streckade linjen anger den del av golfbanans gräns pa vilken ett skyddsstängsel bör byggas. Objektbeteckning för byggnader och anläggningar för samhällsteknisk försäljning. Beteckningen tilläter byggande av en högst 20 v-m2 stor transfonnator. Objektbetecknlng för byggnader ooh anläggningar för samhällsteknisk försörjning.",
   "class": "candidate",
   "key_info": {
    "permission": "granted",
@@ -258,7 +328,7 @@ const DATA=[
    "building_rights": null,
    "operator_clause": false
   },
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/597/attachments/52",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/601/attachments/48",
   "source": "arcgis"
  },
  {
@@ -271,7 +341,7 @@ const DATA=[
   ],
   "quote": "Merkintä ah300: Luku osoittaa kuinka monta k-m² rakennuspaikan kerrosalasta saa käyttää vanhusten palvelutilaksi (legendMerkintä käytetty kaavakartassa — vanhusten palvelutilaa varattu kerrosalaa).",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/438/attachments/93",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/441/attachments/78",
   "source": "ocr"
  },
  {
@@ -284,7 +354,7 @@ const DATA=[
   ],
   "quote": "Alalle saa sijoittaa sosiaali- ja terveydenhuoltoa palvelevia tuetun asumisen palveluja oheistiloineen.",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/542/attachments/255",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/546/attachments/194",
   "source": "ocr"
  },
  {
@@ -297,7 +367,7 @@ const DATA=[
   ],
   "quote": "Korttelin 350 A-korttelialue: Alueelle on sallittu sijoittaa erityisryhmien asuntoja sekä em. toiminnan edellyttämiä työpaikkoja. A-korttelin erityisryhmien asuintiloja varten 1 ap/150 k-m², erityisryhmien kerho- ja yhteistiloja varten 1 ap/100 k-m².",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/576/attachments/33",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/580/attachments/31",
   "source": "ocr"
  },
  {
@@ -311,7 +381,7 @@ const DATA=[
   ],
   "quote": "AK-korttelialue: asuintilat 1 ap./85 k-m². Vanhustenpalvelu-asumistilat 1 ap./150 k-m². Myymälätilat 1 ap./40 k-m². Julkiset palvelutilat 1 ap./150 k-m².",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/189/attachments/65",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/192/attachments/58",
   "source": "ocr"
  },
  {
@@ -324,7 +394,7 @@ const DATA=[
   ],
   "quote": "Korttelialueen asuinrakennusoikeudesta saa käyttää enintään 3000 k-m² erityisryhmien asumiseen sekä em. toiminnan edellyttämiä oleskelu- ja työtiloja varten. AK-korttelissa erityisryhmien asuintila 1 ap./150 k-m², erityisryhmien kerho- ja yhteistila 1 ap./100 k-m².",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/203/attachments/266",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/206/attachments/183",
   "source": "ocr"
  },
  {
@@ -337,8 +407,68 @@ const DATA=[
   ],
   "quote": "Rakennusala, jolle saa rakentaa erityisasuntoja . Koulun, päiväkodin ja/tai erityisasunnot otetaan käyttöön siinä vaiheessa kun kaavaan merkitty koulu ja/tai erityisasunnot otetaan käyttöön.",
   "class": "candidate",
-  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/550/attachments/214",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/554/attachments/239",
   "source": "ocr"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "2168",
+  "nimi": "Hommas ja Masala, keskusta",
+  "stage": "Lainvoimainen (OCR)",
+  "keywords": [
+   "erityisryhmien asuminen"
+  ],
+  "quote": "Y-1-yleisten rakennusten korttelialue: Alueelle saa rakentaa asuntoja erityisryhmiä varten.",
+  "class": "candidate",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/121/attachments/177",
+  "source": "ocr"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "1105",
+  "nimi": "Heikkilä II",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "YS-korttelialue",
+   "lastenpäivähoito",
+   "lähipalvelu"
+  ],
+  "quote": "Sosiaalista toimintaa palvelevan rakennuksen korttelialue. YS-merkitylle korttelialueelle saa rakentaa alueen asukkaita palvelevia lastenpäivähoito-, lähipalvelu- ja kokoon/tumistiloja.",
+  "class": "candidate",
+  "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella; teksti OCR-lähteestä, osin sumea.",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/59/attachments/20",
+  "source": "ys-zone"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "918",
+  "nimi": "Kuusala II",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "YS-korttelialue",
+   "lastenpäivähoito",
+   "lähipalvelu"
+  ],
+  "quote": "Sosiaalista toimintaa palvelevan rakennuksen korttelialue. YS-merkitylle korttelialueelle saa rakentaa alueen asukkaita palvelevia lastenpäivähoito-, lähipalvelu- ja kokoontumistiloja.",
+  "class": "candidate",
+  "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue). Löydetty YS-kooditunnistuksella.",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/500/attachments/27",
+  "source": "ys-zone"
+ },
+ {
+  "city": "kirkkonummi",
+  "kaava": "3061",
+  "nimi": "Keskustan terveysasema",
+  "stage": "Lainvoimainen",
+  "keywords": [
+   "YS-korttelialue",
+   "terveysasema"
+  ],
+  "quote": "Sosiaali- ja terveydenhuoltoa palvelevien rakennusten korttelialue (YS). Palvelurakennusten korttelialue, jolla 1 ap./80 k-m2.",
+  "class": "candidate",
+  "note": "YS-merkintä (sosiaali- ja terveyspalvelujen korttelialue) kirkon välittömässä läheisyydessä. Löydetty manuaalitarkistuksessa (Antin tuntema tontti).",
+  "pdf_url": "https://services-eu1.arcgis.com/P1cxApjmyq5VQU8z/arcgis/rest/services/Asemakaava_Kirkkonummi/FeatureServer/0/378/attachments/281",
+  "source": "ys-zone"
  },
  {
   "city": "kirkkonummi",
@@ -373,7 +503,7 @@ const DATA=[
    "palveluasuminen",
    "palvelutalo"
   ],
-  "quote": "lle kiin- nusaloilla. Pysäköintiin liittyvät tilat saa toteuttaa köintilaitoksiin ”ma-1” ja ”ma-2”- merkityillä raken- Korttelin kaikki autopaikat tulee toteuttaa pysä- alaa (ysa) -1 ap/400 k-m² hoivapalveluasumisen kerros- alaa -1 ap/75 k-m² toimisto- ja työtilojen kerros- paikkoja 1 ap/ryhmä kerrosalaa. Päiväkodille tulee varata saatto- -1 ap/200 k-m² julkisten palveluiden (yl, yy) -1 ap/120 k-m² liiketilojen kerrosalaa vähintään 0,5 ap/asunto -1 ap/130 k-m² asuntojen kerrosalaa, kuitenkin seuraavasti: Autop",
+  "quote": "lle kiin- nusaloilla. Pysäköintiin liittyvät tilat saa toteuttaa köintilaitoksiin ”ma-1” ja ”ma-2”- merkityillä raken- Korttelin kaikki autopaikat tulee toteuttaa pysä- alaa (ysa) -1 ap/400 k-m² hoivapalveluasumisen kerros- alaa -1 ap/75 k-m² toimisto- ja työtilojen kerros- paikkoja 1 ap/ryhmä kerrosalaa.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/410310.pdf",
   "source": "wfs"
@@ -387,7 +517,7 @@ const DATA=[
    "palvelutalo",
    "vanhustenpalvelut"
   ],
-  "quote": "lle tulee järjestää porras- saa sijoittaa toiselle tontille kiinteistöjen välisin toteuttaa annetun kerrosalan lisäksi, ja niitä autopaikkaa (p). Pysäköintiin liittyvät tilat saa toteuttaa enintään 7 palvelutalolle kuuluvaa pysäköintilaitoksessa.Piha-alueelle voidaan AK-korttelialueen autopaikat tulee toteuttaa - 1ap/75 k-m² palvelu- ja työtilojen kerrosalaa. perusteella. hakemuksen yhteydessä esitetyn selvityksen edellyttämä määrä autopaikkoja rakennuslupa- Korttelialueelle tulee varata käyttötarkoituksen -1",
+  "quote": "lle tulee järjestää porras- saa sijoittaa toiselle tontille kiinteistöjen välisin toteuttaa annetun kerrosalan lisäksi, ja niitä autopaikkaa (p). Pysäköintiin liittyvät tilat saa toteuttaa enintään 7 palvelutalolle kuuluvaa pysäköintilaitoksessa.Piha-alueelle voidaan AK-korttelialueen autopaikat tulee toteuttaa - 1ap/75 k-m² palvelu- ja työtilojen kerrosalaa. perusteella.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/410309.pdf",
   "source": "wfs"
@@ -400,7 +530,7 @@ const DATA=[
   "keywords": [
    "palveluasuminen"
   ],
-  "quote": "ulkotiloissa. olevaan tilaan. Lisäksi tulee osoittaa tilaa lyhyt- paikat on sijoitettava katettuun ja lukittavissa Kaikki vähimmäisvaatimuksen mukaiset pyörä- - Toimistot ja liiketilat 1 pp/200 k-m². palveluasumisessa 0,5 pp/asunto opiskelija-asunnoissa 1,5 pp/asunto, vähintään 2 pp/asunto, yksiöissä ja - Asunnot 1 pp/30 k-m², kuitenkin vähintään seuraavasti: Polkupyöräpaikkoja on rakennettava teistöjen välisin sopimuksin. Autopaikkoja saa sijoittaa toiselle tontille kiin- tössä eikä niihin sovelleta mitään keve",
+  "quote": "ulkotiloissa. olevaan tilaan. Lisäksi tulee osoittaa tilaa lyhyt- paikat on sijoitettava katettuun ja lukittavissa Kaikki vähimmäisvaatimuksen mukaiset pyörä- - Toimistot ja liiketilat 1 pp/200 k-m². palveluasumisessa 0,5 pp/asunto opiskelija-asunnoissa 1,5 pp/asunto, vähintään 2 pp/asunto, yksiöissä ja - Asunnot 1 pp/30 k-m², kuitenkin vähintään seuraavasti: Polkupyöräpaikkoja on rakennettava teistöjen välisin sopimuksin.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/211836.pdf",
   "source": "wfs"
@@ -439,7 +569,7 @@ const DATA=[
   "keywords": [
    "palveluasuminen"
   ],
-  "quote": "Till läget riktgivande byggyta. med arabiskt tal angivna byggrätten placeras. laisen luvun osoittama rakennusoikeus sijoittuu. Merkintä osoittaa ne rakennusalat, joille arabia- pk vm so palveluja ja palveluasumista. Rakennusala, jolle saa sijoittaa sosiaalitoimen niihin on helppo pääsy. tamon. Muuntamotilat tulee sijoittaa niin, että Ohjeellinen rakennusala, jolle saa sijoittaa muun- tän huoltorakennuksen. Ohjeellinen rakennusala, jolle saa sijoittaa ken- I a /ma ks-1 ark Beteckningen anger att denna sida av",
+  "quote": "Till läget riktgivande byggyta. med arabiskt tal angivna byggrätten placeras. laisen luvun osoittama rakennusoikeus sijoittuu. Merkintä osoittaa ne rakennusalat, joille arabia- pk vm so palveluja ja palveluasumista. Rakennusala, jolle saa sijoittaa sosiaalitoimen niihin on helppo pääsy. tamon. Muuntamotilat tulee sijoittaa niin, että Ohjeellinen rakennusala, jolle saa sijoittaa muun- tän huoltorakennuksen.",
   "class": "candidate",
   "pdf_url": "https://kartat.espoo.fi/documents/kaavamaaraykset/130140.pdf",
   "source": "wfs"
